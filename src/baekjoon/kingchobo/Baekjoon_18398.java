@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class Beakjoon_18398 {
+public class Baekjoon_18398 {
     /*
         HOMWRK
 
