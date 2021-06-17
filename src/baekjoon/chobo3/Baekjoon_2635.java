@@ -51,11 +51,14 @@ public class Baekjoon_2635 {
             }
         }
 
-        assert arr != null;
-        System.out.println(arr.size());
-        for (int a : arr){
-            System.out.print(a + " ");
+        if (arr == null)
+            System.out.println(0);
+        else {
+            System.out.println(arr.size());
+            for (int a : arr) {
+                System.out.print(a + " ");
+            }
+            System.out.println();
         }
-        System.out.println();
     }
 }
