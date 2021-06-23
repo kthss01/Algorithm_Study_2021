@@ -5,7 +5,7 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
-public class addTwoValues {
+public class AddTwoValues {
     /*
         두 개 뽑아서 더하기
         정수 배열 numbers가 주어짐
