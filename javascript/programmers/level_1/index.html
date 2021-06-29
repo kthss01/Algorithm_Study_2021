@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>JavaScript Test</title>
+</head>
+<body>
+  <script type="text/javascript" src="sum_two_numbers.js"></script>
+  <script type="text/javascript">
+    document.write('자바스크립트 알고리즘 문제 풀이 페이지 Level 1');
+
+    document.write('<br><br> 두 정수 사이의 합');
+    let a = 3;
+    let b = 5;
+    document.write(`<br>solution 1 : ${solution(a, b)}`);
+
+    a = 3;
+    b = 3;
+    document.write(`<br>solution 2 : ${solution(a, b)}`);
+
+    a = 5;
+    b = 3;
+    document.write(`<br>solution 3 : ${solution(a, b)}`);
+  </script>
+
+  <script type="text/javascript" src="./dev_matching_2021/lotto_max_min_rank.js"></script>
+  <script type="text/javascript">
+    document.write('<br><br> 로또의 최고 순위와 최저 순위');
+
+    let lottos = [44, 1, 0, 0, 31, 25];
+    let win_nums = [31, 10, 45, 1, 6, 19];
+    document.write(`<br>solution 1 : ${solution(lottos, win_nums)}`);
+
+    lottos = [0, 0, 0, 0, 0, 0];
+    win_nums = [38, 19, 20, 40, 15, 25];
+    document.write(`<br>solution 1 : ${solution(lottos, win_nums)}`);
+
+    lottos = [45, 4, 35, 20, 3, 9]	;
+    win_nums = [20, 9, 3, 45, 4, 35];
+    document.write(`<br>solution 1 : ${solution(lottos, win_nums)}`);
+  </script>
+</body>
+</html>
