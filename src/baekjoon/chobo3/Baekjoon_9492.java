@@ -49,7 +49,6 @@ public class Baekjoon_9492 {
                 sb.append(cards[n/2]).append("\n");
             }
         }
-
         System.out.println(sb);
     }
 }
