@@ -36,6 +36,7 @@ public class DivisorCntSum {
 //        }
 
         // 1차 효율
+        // 12 1 2 3 4 6 12
         for (int i = 1; i * i <= number; i++) {
             if (number % i == 0) {
                 cnt++;
