@@ -32,6 +32,7 @@
   <script type="text/javascript" src="./dev_matching_2021/lotto_max_min_rank.js"></script>
   <script type="text/javascript">
     document.write('<br><br> 로또의 최고 순위와 최저 순위');
+    document.write('<br> 2021 Dev-Matching: 웹 백엔드 개발자(상반기) 문제');
 
     let lottos = [44, 1, 0, 0, 31, 25];
     let win_nums = [31, 10, 45, 1, 6, 19];
@@ -125,6 +126,78 @@
     document.write(`<br> solution 1 : \n${solution(n, m)}`);
   </script>
   </pre>
+
+  <script src="num_order_desc.js" charset="utf-8"></script>
+  <script type="text/javascript">
+    document.write('<br><br> 정수 내림차순으로 배치하기');
+
+    n = 118372;
+    document.write(`<br> solution 1 : ${solution(n)}`);
+  </script>
+
+  <script src="find_mid_char.js" charset="utf-8"></script>
+  <script type="text/javascript">
+    document.write('<br><br> 가운데 글자 가져오기');
+
+    s = "abcde";
+    document.write(`<br> solution 1 : ${solution(s)}`); // "c"
+
+    s = "qwer";
+    document.write(`<br> solution 2 : ${solution(s)}`); // "we"
+  </script>
+
+  <script src="./brute_force/mock_exam.js" charset="utf-8"></script>
+  <script type="text/javascript">
+    document.write('<br><br> 모의고사');
+    document.write('<br> 완전탐색 (brute force) 문제');
+
+    let answers = [1,2,3,4,5];
+    document.write(`<br> solution 1 : ${solution(answers)}`); // 1
+
+    answers = [1,3,2,4,2];
+    document.write(`<br> solution 2 : ${solution(answers)}`); // 1,2,3
+  </script>
+
+  <script src="delete_lowest_num.js" charset="utf-8"></script>
+  <script type="text/javascript">
+    document.write('<br><br> 제일 작은 수 제거하기');
+
+    arr = [4,3,2,1];
+    document.write(`<br> solution 1 : ${solution(arr)}`);
+
+    arr = [10];
+    document.write(`<br> solution 2 : ${solution(arr)}`);
+  </script>
+
+  <script src="num_to_reverse_array.js" charset="utf-8"></script>
+  <script type="text/javascript">
+    document.write('<br><br> 자연수 뒤집어 배열로 만들기');
+
+    n = 12345;
+    document.write(`<br> solution 1 : ${solution(n)}`);
+  </script>
+
+  <script src="string_to_number.js" charset="utf-8"></script>
+  <script type="text/javascript">
+    document.write('<br><br> 문자열을 정수로 바꾸기');
+
+    s = "1234";
+    document.write(`<br> solution 1 : ${solution(s)}`);
+
+    s = "-1234";
+    document.write(`<br> solution 2 : ${solution(s)}`);
+  </script>
+
+  <script src="str_basic.js" charset="utf-8"></script>
+  <script type="text/javascript">
+    document.write('<br><br> 문자열 다루기 기본');
+
+    s = "a234";
+    document.write(`<br> solution 1 : ${solution(s)}`);
+
+    s = "1234";
+    document.write(`<br> solution 2 : ${solution(s)}`);
+  </script>
 </body>
 
 </html>
