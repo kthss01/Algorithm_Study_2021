@@ -33,6 +33,7 @@ function compute() {
   return td;
 }
 
+// 에라토스체네스의 체
 function solution(n) {
   let answer = 0;
 
