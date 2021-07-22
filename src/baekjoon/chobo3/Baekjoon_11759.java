@@ -2,7 +2,7 @@ package baekjoon.chobo3;
 
 import java.util.Scanner;
 
-public class baekjoon_11759 {
+public class Baekjoon_11759 {
     /*
         Bottled-Up Feelings
 
