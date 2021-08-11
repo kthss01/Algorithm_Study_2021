@@ -94,9 +94,9 @@ function solution(new_id) {
 
   answer = new_id
     .toLowerCase()
-    .replace(/[^\w-_.]/g, '')
-    .replace(/\.+/g, '.')
-    .replace(/^.|\.$/g, '')
+    .replace(/[^\w\d-_.]/g, '')
+    .replace(/\.{2,}/g, '.')
+    .replace(/^\.|\.$/g, '')
     .replace(/^$/, 'a') // 빈 문자열 의미
     .slice(0, 15).replace(/\.$/, '');
 
