@@ -30,3 +30,9 @@ print('hello python')
     range(5) 0 1 2 3 4
     range(1, 5) 1 2 3 4 (마지막 안들어감)
 '''
+
+# 문자열 포맷
+print('{} {}'.format('1','2'))
+# f-string
+month = 2
+print(f'2020년 {month}월')
