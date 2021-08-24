@@ -16,15 +16,17 @@ const prob = {
     table_body : document.querySelector('#problem_template table tbody'),
     link : document.querySelector('#problem_template .card-footer a'),
     reference : document.querySelector('#problem_template .card-footer p'),
+    card_header : document.querySelector('#problem_template .card-header'),
 };
 
-function compute({name, category, content, limit, example, link, reference, id}) {
+function compute({name, category, content, limit, example, link, reference, check, solution, id}) {
     
     // navigation 처리
     nav_item_a.setAttribute('href', `#${id}`);
     nav_item_a.textContent = name;    
     
     const new_nav_item = nav_item.cloneNode(true);
+    new_nav_item.removeAttribute('id');
     new_nav_item.classList.remove('d-none');
     
     nav_ul.appendChild(new_nav_item);
@@ -32,10 +34,19 @@ function compute({name, category, content, limit, example, link, reference, id})
     // problem 처리
     prob.name.textContent = name;
     prob.category.textContent = category;
-    prob.content.textContent = content;
-    prob.limit.textContent = limit;
+    // 처음 \n 제거
+    content = content.replace(/\n/, "");
+    // 나머지 \n <br>로 전환
+    prob.content.innerHTML = content.replace(/\n/g, "<br>");
+    // 처음 \n 제거
+    limit = limit.replace(/\n/, "");
+    // 나머지 \n <br>로 전환
+    prob.limit.innerHTML = limit.replace(/\n/g, "<br>");
     prob.link.setAttribute('href', link);
     prob.reference.textContent = reference;
+
+    prob.card_header.classList.remove('bg-info', 'bg-success', 'bg-danger');
+    check ? prob.card_header.classList.add('bg-success') : prob.card_header.classList.add('bg-danger');
     
     // problem table 처리
     const { header : table_head, body : table_body } = example;
@@ -59,19 +70,22 @@ function compute({name, category, content, limit, example, link, reference, id})
 
     // tbody
     const {parameter, answer} = table_body;
-    parameter.forEach((ele, index) => {
+    parameter.forEach((param, index) => {
         const tbody_tr = document.createElement('tr');
 
         // parameter 추가
-        ele.forEach(p => {
-            const tbody_td = document.createElement('td');
-            tbody_td.textContent = p;
-            tbody_tr.appendChild(tbody_td);
-        });
+        let tbody_td = document.createElement('td');
+        tbody_td.textContent = param.join(',');
+        tbody_tr.appendChild(tbody_td);
 
         // answer 추가
-        const tbody_td = document.createElement('td');
+        tbody_td = document.createElement('td');
         tbody_td.textContent = answer[index];
+        tbody_tr.appendChild(tbody_td);
+
+        // solution 추가
+        tbody_td = document.createElement('td');
+        tbody_td.textContent = solution(...param);
         tbody_tr.appendChild(tbody_td);
 
         prob.table_body.appendChild(tbody_tr);

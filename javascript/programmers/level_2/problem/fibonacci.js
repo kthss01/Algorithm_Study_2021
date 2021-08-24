@@ -21,18 +21,37 @@ n은 1이상, 100000이하인 자연수
 `;
 
 const example = {
-    header : ['n', 'return'],
+    header : ['n', 'return', 'solution'],
     body : {
         parameter : [[3],[5]],
-        answer : [[2],[5]]
+        answer : [2,5]
     }
 };
 
 const {parameter, answer} = example.body;
 
-const check = parameter.forEach((parm, index) => {
-    return answer[index] === solution(...parm);
+const check = parameter.every((param, index) => {
+    const sol = solution(...param);
+    const ans = answer[index];
+
+    // answer가 array인 경우 일일히 비교해야함
+    if (typeof ans === Array) {
+        return ans.every((ele, index) => {
+            return ele === sol[index];
+        });
+    } 
+
+    // answer가 값인 경우 그냥 answer와 비교
+    return ans === sol;
 })
+
+const link = 'https://programmers.co.kr/learn/courses/30/lessons/12945';
+
+const reference = `
+
+`;
+
+/////////////////////////////////////////////////////////////////////////
 
 function solution(n) {
     let answer = 0;
@@ -49,10 +68,4 @@ function solution(n) {
     return answer;
 }
 
-const link = '';
-
-const reference = `
-
-`;
-
-export { name, category, content, limit, example, link, reference }
+export { name, category, content, limit, example, link, reference, check, solution }
