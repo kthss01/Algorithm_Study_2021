@@ -12,6 +12,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
+    <script type="module" src="./index.js"></script>
+
     <style>
         html {
             scroll-behavior: smooth;
@@ -36,8 +38,12 @@
         }
 
         .card-body>p {
-            height: 300px;
+            height: 150px;
             overflow-y: scroll;
+        }
+
+        .card-body>p:nth-child(1) {
+            height: 200px;
         }
 
         .card-footer>p {
@@ -54,23 +60,17 @@
         <div class="row">
             <nav class="col-sm-3 col-4" id="myScrollspy">
                 <ul id="nav_ul" class="nav nav-pills flex-column">
-                    <li class="nav-item">
-                        <a href="#problem1" class="nav-link active">problem 1</a>
+                    <!-- template -->
+                    <li id='nav_item_template' class="nav-item d-none">
+                        <a href="#problem" class="nav-link">problem</a>
                     </li>
-                    <li class="nav-item">
-                        <a href="#problem2" class="nav-link active">problem 2</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#problem3" class="nav-link active">problem 3</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#problem4" class="nav-link active">problem 4</a>
-                    </li>
+
                 </ul>
             </nav>
 
-            <div class="col-sm-9 col-8">
-                <div id="problem1">
+            <div id="problem" class="col-sm-9 col-8">
+
+                <div id="problem_template" class='d-none'>
                     <div class="card">
                         <div class="card-header bg-info clearfix">
                             <h4 class="card-title text-white float-left">Problem</h4>
@@ -78,35 +78,17 @@
                         </div>
 
                         <div class="card-body">
-                            <h4 class="card-title text-primary">problem</h4>
                             <p class="card-text border border-secondary p-2 mb-4">
                                 content
                             </p>
+                            <p class="card-text border border-secondary p-2 mb-4">
+                                limit
+                            </p>
                             <table class="card-text table table-hover table-sm">
                                 <thead class="thead-dark">
-                                    <tr>
-                                        <th>p1</th>
-                                        <th>p2</th>
-                                        <th>result</th>
-                                    </tr>
                                 </thead>
 
                                 <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>2</td>
-                                        <td>3</td>
-                                    </tr>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>2</td>
-                                        <td>3</td>
-                                    </tr>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>2</td>
-                                        <td>3</td>
-                                    </tr>
                                 </tbody>
 
                             </table>
@@ -121,163 +103,6 @@
                         </div>
                     </div>
                 </div>
-
-                <div id="problem2">
-                    <div class="card">
-                        <div class="card-header bg-info clearfix">
-                            <h4 class="card-title text-white float-left">Problem</h4>
-                            <span class="badge badge-pills badge-secondary float-right">문제 영역</span>
-                        </div>
-
-                        <div class="card-body">
-                            <h4 class="card-title text-primary">problem</h4>
-                            <p class="card-text border border-secondary p-2 mb-4">
-                                content
-                            </p>
-                            <table class="card-text table table-hover table-sm">
-                                <thead class="thead-dark">
-                                    <tr>
-                                        <th>p1</th>
-                                        <th>p2</th>
-                                        <th>result</th>
-                                    </tr>
-                                </thead>
-
-                                <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>2</td>
-                                        <td>3</td>
-                                    </tr>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>2</td>
-                                        <td>3</td>
-                                    </tr>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>2</td>
-                                        <td>3</td>
-                                    </tr>
-                                </tbody>
-
-                            </table>
-                        </div>
-
-                        <div class="card-footer">
-                            <a class="btn btn-outline-success btn-block" href="#">link</a>
-
-                            <p class="card-text border border-body p-1 mt-2">
-                                content
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="problem3">
-                    <div class="card">
-                        <div class="card-header bg-info clearfix">
-                            <h4 class="card-title text-white float-left">Problem</h4>
-                            <span class="badge badge-pills badge-secondary float-right">문제 영역</span>
-                        </div>
-
-                        <div class="card-body">
-                            <h4 class="card-title text-primary">problem</h4>
-                            <p class="card-text border border-secondary p-2 mb-4">
-                                content
-                            </p>
-                            <table class="card-text table table-hover table-sm">
-                                <thead class="thead-dark">
-                                    <tr>
-                                        <th>p1</th>
-                                        <th>p2</th>
-                                        <th>result</th>
-                                    </tr>
-                                </thead>
-
-                                <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>2</td>
-                                        <td>3</td>
-                                    </tr>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>2</td>
-                                        <td>3</td>
-                                    </tr>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>2</td>
-                                        <td>3</td>
-                                    </tr>
-                                </tbody>
-
-                            </table>
-                        </div>
-
-                        <div class="card-footer">
-                            <a class="btn btn-outline-success btn-block" href="#">link</a>
-
-                            <p class="card-text border border-body p-1 mt-2">
-                                content
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="problem4">
-                    <div class="card">
-                        <div class="card-header bg-info clearfix">
-                            <h4 class="card-title text-white float-left">Problem</h4>
-                            <span class="badge badge-pills badge-secondary float-right">문제 영역</span>
-                        </div>
-
-                        <div class="card-body">
-                            <h4 class="card-title text-primary">problem</h4>
-                            <p class="card-text border border-secondary p-2 mb-4">
-                                content
-                            </p>
-                            <table class="card-text table table-hover table-sm">
-                                <thead class="thead-dark">
-                                    <tr>
-                                        <th>p1</th>
-                                        <th>p2</th>
-                                        <th>result</th>
-                                    </tr>
-                                </thead>
-
-                                <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>2</td>
-                                        <td>3</td>
-                                    </tr>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>2</td>
-                                        <td>3</td>
-                                    </tr>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>2</td>
-                                        <td>3</td>
-                                    </tr>
-                                </tbody>
-
-                            </table>
-                        </div>
-
-                        <div class="card-footer">
-                            <a class="btn btn-outline-success btn-block" href="#">link</a>
-
-                            <p class="card-text border border-body p-1 mt-2">
-                                content
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
             </div>
         </div>
     </div>
