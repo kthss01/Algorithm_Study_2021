@@ -10,7 +10,7 @@ const limit = `
 `;
 
 const example = {
-    header : ['', ''],
+    header : ['', '', 'solution'],
     body : {
         // parameter 여러개인 경우 대비해서 []로 묶은거
         // parameter 한개가 배열인경우 [[[]]] 이렇게 써야함 n_lcm 문제 참ㄱ
