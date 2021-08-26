@@ -19,7 +19,10 @@ const example = {
     body : {
         // parameter 여러개인 경우 대비해서 []로 묶은거
         // parameter 한개가 배열인경우 [[[]]] 이렇게 써야함 n_lcm 문제 참ㄱ
-        parameter : [["3people unFollowed me"],["for the last week"]], 
+        parameter : [
+            ["3people unFollowed me"],
+            ["for the last week"]
+        ], 
         answer : ["3people Unfollowed Me","For The Last Week"]
     }
 };
@@ -31,8 +34,14 @@ const check = parameter.every((param, index) => {
     const ans = answer[index];
 
     // answer가 array인 경우 일일히 비교해야함
-    if (typeof ans === Array) {
+    if (Array.isArray(ans)) {
         return ans.every((ele, index) => {
+            // 2차원 배열인 경우 처리
+            if (Array.isArray(ele)) {
+                return ele.every((ele2, index2) => {
+                    return ele2 === sol[index][index2];
+                })
+            }
             return ele === sol[index];
         });
     } 

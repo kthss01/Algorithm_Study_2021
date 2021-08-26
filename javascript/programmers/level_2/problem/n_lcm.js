@@ -24,7 +24,12 @@ const example = {
     header : ['arr', 'result', 'solution'],
     body : {
         parameter : [
-            [[2,6,8,14]],[[1,2,3]]
+            [
+                [2,6,8,14]
+            ],
+            [
+                [1,2,3]
+            ]
         ],
         answer : [168,6]
     }
@@ -37,8 +42,14 @@ const check = parameter.every((param, index) => {
     const ans = answer[index];
 
     // answer가 array인 경우 일일히 비교해야함
-    if (typeof ans === Array) {
+    if (Array.isArray(ans)) {
         return ans.every((ele, index) => {
+            // 2차원 배열인 경우 처리
+            if (Array.isArray(ele)) {
+                return ele.every((ele2, index2) => {
+                    return ele2 === sol[index][index2];
+                })
+            }
             return ele === sol[index];
         });
     } 

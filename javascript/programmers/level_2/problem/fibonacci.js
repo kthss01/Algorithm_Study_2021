@@ -23,7 +23,10 @@ n은 1이상, 100000이하인 자연수
 const example = {
     header : ['n', 'return', 'solution'],
     body : {
-        parameter : [[3],[5]],
+        parameter : [
+            [3],
+            [5]
+        ],
         answer : [2,5]
     }
 };
@@ -35,8 +38,14 @@ const check = parameter.every((param, index) => {
     const ans = answer[index];
 
     // answer가 array인 경우 일일히 비교해야함
-    if (typeof ans === Array) {
+    if (Array.isArray(ans)) {
         return ans.every((ele, index) => {
+            // 2차원 배열인 경우 처리
+            if (Array.isArray(ele)) {
+                return ele.every((ele2, index2) => {
+                    return ele2 === sol[index][index2];
+                })
+            }
             return ele === sol[index];
         });
     } 

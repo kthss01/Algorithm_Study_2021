@@ -73,19 +73,67 @@ function compute({name, category, content, limit, example, link, reference, chec
     parameter.forEach((param, index) => {
         const tbody_tr = document.createElement('tr');
 
+        let tbody_td;
         // parameter 추가
-        let tbody_td = document.createElement('td');
-        tbody_td.textContent = param.join(',');
-        tbody_tr.appendChild(tbody_td);
+        param.forEach(p => {
+            tbody_td = document.createElement('td');
+            let text = '';
+            if (Array.isArray(p)) {
+                text += '[';
+                if (Array.isArray(p[0])) {
+                    p.forEach(p2 => {
+                        text += '[';
+                        text += p2.join(',');
+                        text += ']';
+                    })
+                } else {
+                    text += p.join(',');
+                }
+                text += ']';
+            } else {
+                text = p;
+            }
+
+            tbody_td.textContent = text;
+            tbody_tr.appendChild(tbody_td);
+        });
 
         // answer 추가
         tbody_td = document.createElement('td');
-        tbody_td.textContent = answer[index];
+
+        let text = '';
+        if (Array.isArray(answer[index])) {
+            text += '[';
+            answer[index].forEach(e => {
+                text += '[';
+                text += e.join(',');
+                text += ']';
+            })
+            text += ']';
+        } else {
+            text = answer[index];
+        }
+
+        tbody_td.textContent = text;
         tbody_tr.appendChild(tbody_td);
 
         // solution 추가
         tbody_td = document.createElement('td');
-        tbody_td.textContent = solution(...param);
+
+        text = '';
+        if (Array.isArray(solution(...param))) {
+            text += '[';
+            solution(...param).forEach(e => {
+                text += '[';
+                text += e.join(',');
+                text += ']';
+            })
+            text += ']';
+        } else {
+            text = solution(...param);
+        }
+
+        tbody_td.textContent = text;
         tbody_tr.appendChild(tbody_td);
 
         prob.table_body.appendChild(tbody_tr);
