@@ -74,18 +74,48 @@ const link = 'https://programmers.co.kr/learn/courses/30/lessons/12913';
 const reference = `
 다이나믹 프로그래밍 dp 문제
 <a href="https://blog.naver.com/ndb796/221233570962" target="_blank">다이나믹 프로그래밍</a>
+<a href="https://shanepark.tistory.com/183" target="_blank">다이나믹 프로그래밍</a>
 `;
 
 ///////////////////////////////////////////////////////////////////
 
 /*
-    f[n] = f[n-2] + f[n-1]max(row)n-1 + 
+    d[n] 현재 행에서 각열이 가질 수 있는 최고합
 */
 
 function solution(land) {
     let answer = 0;
 
+    let dp = [];
+
+    // 꽤나 느림 답은 맞음 효율성 쪽도
+    // land.forEach((ele, ind) => {
+    //     if (ind === 0) {
+    //         dp[ind] = ele;
+    //     } else {
+    //         dp[ind] = ele.map((ele2, ind2) => {
+    //             return Math.max(...dp[ind-1].filter((ele3, ind3) => ind2 !== ind3)) + ele2
+    //         });
+    //     }
+    // });
+
+    for (let i = 0; i < land.length; i++) {
+        if (i == 0) {
+            dp[i] = land[i];
+            continue;
+        } 
+
+        let row = []
+        row[0] = Math.max(dp[i-1][1], dp[i-1][2], dp[i-1][3]) + land[i][0];
+        row[1] = Math.max(dp[i-1][0], dp[i-1][2], dp[i-1][3]) + land[i][1];
+        row[2] = Math.max(dp[i-1][1], dp[i-1][0], dp[i-1][3]) + land[i][2];
+        row[3] = Math.max(dp[i-1][1], dp[i-1][2], dp[i-1][0]) + land[i][3];
+
+        dp[i] = row;
+    }
+
     
+    answer = Math.max(...dp[dp.length-1]);
 
     return answer;
 }
