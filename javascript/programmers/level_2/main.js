@@ -43,7 +43,8 @@ function compute({name, category, content, limit, example, link, reference, chec
     // 나머지 \n <br>로 전환
     prob.limit.innerHTML = limit.replace(/\n/g, "<br>");
     prob.link.setAttribute('href', link);
-    prob.reference.textContent = reference;
+    reference = reference.replace(/\n/, "");
+    prob.reference.innerHTML = reference.replace(/\n/g, "<br>");
 
     prob.card_header.classList.remove('bg-info', 'bg-success', 'bg-danger');
     check ? prob.card_header.classList.add('bg-success') : prob.card_header.classList.add('bg-danger');
