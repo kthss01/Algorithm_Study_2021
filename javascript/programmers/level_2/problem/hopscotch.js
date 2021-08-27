@@ -86,7 +86,7 @@ const reference = `
 function solution(land) {
     let answer = 0;
 
-    let dp = [];
+    // let dp = [];
 
     // 꽤나 느림 답은 맞음 효율성 쪽도
     // land.forEach((ele, ind) => {
@@ -99,23 +99,32 @@ function solution(land) {
     //     }
     // });
 
-    for (let i = 0; i < land.length; i++) {
-        if (i == 0) {
-            dp[i] = land[i];
-            continue;
-        } 
+    // for (let i = 0; i < land.length; i++) {
+    //     if (i == 0) {
+    //         dp[i] = land[i];
+    //         continue;
+    //     } 
 
-        let row = []
-        row[0] = Math.max(dp[i-1][1], dp[i-1][2], dp[i-1][3]) + land[i][0];
-        row[1] = Math.max(dp[i-1][0], dp[i-1][2], dp[i-1][3]) + land[i][1];
-        row[2] = Math.max(dp[i-1][1], dp[i-1][0], dp[i-1][3]) + land[i][2];
-        row[3] = Math.max(dp[i-1][1], dp[i-1][2], dp[i-1][0]) + land[i][3];
+    //     let row = []
+    //     row[0] = Math.max(dp[i-1][1], dp[i-1][2], dp[i-1][3]) + land[i][0];
+    //     row[1] = Math.max(dp[i-1][0], dp[i-1][2], dp[i-1][3]) + land[i][1];
+    //     row[2] = Math.max(dp[i-1][1], dp[i-1][0], dp[i-1][3]) + land[i][2];
+    //     row[3] = Math.max(dp[i-1][1], dp[i-1][2], dp[i-1][0]) + land[i][3];
 
-        dp[i] = row;
-    }
-
+    //     dp[i] = row;
+    // }
     
-    answer = Math.max(...dp[dp.length-1]);
+    // answer = Math.max(...dp[dp.length-1]);
+
+    // 이렇게 쓰면 모던 자바스크립트로 해도 빠름
+    answer = Math.max(...land.reduce((a, c) => {
+        return [
+            c[0] + Math.max(a[1], a[2], a[3]),  
+            c[1] + Math.max(a[0], a[2], a[3]),
+            c[2] + Math.max(a[0], a[1], a[3]),
+            c[3] + Math.max(a[0], a[1], a[2]),
+        ];
+    }, [0, 0, 0, 0]));
 
     return answer;
 }
