@@ -22,6 +22,15 @@ import * as prob7 from './problem/num_expression.js'
 // 땅따먹기
 import * as prob8 from './problem/hopscotch.js'
 
+// 모음 사전
+import * as prob9 from './problem/vowels_dictionary.js'
+
+// 다음 큰 숫자
+import * as prob10 from './problem/next_bigNum.js'
+
+// 올바른 괄호
+import * as prob11 from './problem/right_bracket.js'
+
 import compute from './main.js'
 
 compute({...prob1, id: 'prob01'});
@@ -32,4 +41,6 @@ compute({...prob5, id: 'prob05'});
 compute({...prob6, id: 'prob06'});
 compute({...prob7, id: 'prob07'});
 compute({...prob8, id: 'prob08'});
-
+compute({...prob9, id: 'prob09'});
+compute({...prob10, id: 'prob10'});
+compute({...prob11, id: 'prob11'});
