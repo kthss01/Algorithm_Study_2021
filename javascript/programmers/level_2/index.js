@@ -31,6 +31,9 @@ import * as prob10 from './problem/next_bigNum.js'
 // 올바른 괄호
 import * as prob11 from './problem/right_bracket.js'
 
+// 가장 큰 정사각형 찾기
+import * as prob12 from './problem/find_biggest_rectangle.js'
+
 import compute from './main.js'
 
 compute({...prob1, id: 'prob01'});
@@ -44,3 +47,4 @@ compute({...prob8, id: 'prob08'});
 compute({...prob9, id: 'prob09'});
 compute({...prob10, id: 'prob10'});
 compute({...prob11, id: 'prob11'});
+compute({...prob12, id: 'prob12'});
