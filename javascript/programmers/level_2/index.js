@@ -34,6 +34,12 @@ import * as prob11 from './problem/right_bracket.js'
 // 가장 큰 정사각형 찾기
 import * as prob12 from './problem/find_biggest_rectangle.js'
 
+// 124 나라의 숫자
+import * as prob13 from './problem/124_country_num.js'
+
+// 기능개발
+import * as prob14 from './problem/function_development.js'
+
 import compute from './main.js'
 
 compute({...prob1, id: 'prob01'});
@@ -48,3 +54,5 @@ compute({...prob9, id: 'prob09'});
 compute({...prob10, id: 'prob10'});
 compute({...prob11, id: 'prob11'});
 compute({...prob12, id: 'prob12'});
+compute({...prob13, id: 'prob13'});
+compute({...prob14, id: 'prob14'});

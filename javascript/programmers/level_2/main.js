@@ -84,11 +84,11 @@ function compute({name, category, content, limit, example, link, reference, chec
                 if (Array.isArray(p[0])) {
                     p.forEach(p2 => {
                         text += '[';
-                        text += p2.join(',');
+                        text += p2.join(', ');
                         text += ']';
                     })
                 } else {
-                    text += p.join(',');
+                    text += p.join(', ');
                 }
                 text += ']';
             } else {
@@ -105,11 +105,15 @@ function compute({name, category, content, limit, example, link, reference, chec
         let text = '';
         if (Array.isArray(answer[index])) {
             text += '[';
-            answer[index].forEach(e => {
-                text += '[';
-                text += e.join(',');
-                text += ']';
-            })
+            if (Array.isArray(answer[index][0])) {
+                answer[index].forEach(e => {
+                    text += '[';
+                    text += e.join(', ');
+                    text += ']';
+                })
+            } else {
+                text += answer[index].join(', ');
+            }
             text += ']';
         } else {
             text = answer[index];
@@ -121,17 +125,23 @@ function compute({name, category, content, limit, example, link, reference, chec
         // solution 추가
         tbody_td = document.createElement('td');
 
+        const sol = solution(...param);
+
         text = '';
-        if (Array.isArray(solution(...param))) {
+        if (Array.isArray(sol)) {
             text += '[';
-            solution(...param).forEach(e => {
-                text += '[';
-                text += e.join(',');
-                text += ']';
-            })
+            if (Array.isArray(sol[0])) {
+                sol.forEach(e => {
+                    text += '[';
+                    text += e.join(', ');
+                    text += ']';
+                })
+            } else {
+                text += sol.join(', ');
+            }
             text += ']';
         } else {
-            text = solution(...param);
+            text = sol;
         }
 
         tbody_td.textContent = text;
