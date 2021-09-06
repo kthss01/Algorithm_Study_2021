@@ -1,3 +1,4 @@
+//// 연습문제
 // 피보나치 수 
 import * as prob1 from './problem/fibonacci.js'
 
@@ -22,7 +23,7 @@ import * as prob7 from './problem/num_expression.js'
 // 땅따먹기
 import * as prob8 from './problem/hopscotch.js'
 
-// 모음 사전
+// 모음 사전 - 위클리 챌린지
 import * as prob9 from './problem/vowels_dictionary.js'
 
 // 다음 큰 숫자
@@ -37,8 +38,15 @@ import * as prob12 from './problem/find_biggest_rectangle.js'
 // 124 나라의 숫자
 import * as prob13 from './problem/124_country_num.js'
 
+//// 스택/큐
 // 기능개발
 import * as prob14 from './problem/function_development.js'
+
+// 프린터
+import * as prob15 from './problem/printer.js'
+
+// 다리를 지나는 트럭
+import * as prob16 from './problem/crossing_bridge_truck.js'
 
 import compute from './main.js'
 
@@ -56,3 +64,5 @@ compute({...prob11, id: 'prob11'});
 compute({...prob12, id: 'prob12'});
 compute({...prob13, id: 'prob13'});
 compute({...prob14, id: 'prob14'});
+compute({...prob15, id: 'prob15'});
+compute({...prob16, id: 'prob16'});
