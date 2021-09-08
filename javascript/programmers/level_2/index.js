@@ -48,6 +48,16 @@ import * as prob15 from './problem/printer.js'
 // 다리를 지나는 트럭
 import * as prob16 from './problem/crossing_bridge_truck.js'
 
+//// KaKao Blind Recruitment
+// 문자열 압축 2020
+import * as prob17 from './problem/string_compression.js'
+
+// 오픈채팅방 2019
+import * as prob18 from './problem/open_chatroom.js'
+
+// 메뉴 리뉴얼 2021
+import * as prob19 from './problem/menu_renewal.js'
+
 import compute from './main.js'
 
 compute({...prob1, id: 'prob01'});
@@ -66,3 +76,6 @@ compute({...prob13, id: 'prob13'});
 compute({...prob14, id: 'prob14'});
 compute({...prob15, id: 'prob15'});
 compute({...prob16, id: 'prob16'});
+compute({...prob17, id: 'prob17'});
+compute({...prob18, id: 'prob18'});
+compute({...prob19, id: 'prob19'});
