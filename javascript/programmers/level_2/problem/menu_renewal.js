@@ -114,25 +114,59 @@ const reference = `
 
 ///////////////////////////////////////////////////////////////////
 
+function getCombinations(arr, selectNumber) {
+    const results = [];
+
+    if (selectNumber === 1) {
+        return arr.map(el => [el]);
+    }
+
+    arr.forEach((fixed, index, origin) => {
+        const rest = origin.slice(index + 1);
+        const combinations = getCombinations(rest, selectNumber - 1);
+        const attached = combinations.map(el => [fixed, ...el]);
+        results.push(...attached);
+    })
+
+    return results;
+}
 
 function solution(orders, course) {
     let answer = [];
 
-    let menuCnt = {};
-    orders.forEach((order) => {
-        order.split('').forEach((e) => {
-            if (menuCnt.hasOwnProperty(e)) {
-                menuCnt[e] += 1;
-            } else {
-                menuCnt[e] = 1;
+    course.forEach(cnt => {
+        let menu = {}
+        orders.forEach(order => {
+            order = order.split('').sort().join('');
+            if (order.length === cnt) {
+                if (!menu.hasOwnProperty(order)) {
+                    menu[order] = 1;
+                } else {
+                    menu[order] += 1;
+                }
+            } else if (order.length > cnt) {
+                getCombinations(order.split(''), cnt).forEach(comb => {
+                    comb = comb.sort().join('');
+                    if (!menu.hasOwnProperty(comb)) {
+                        menu[comb] = 1;
+                    } else {
+                        menu[comb] += 1;
+                    }
+                })
             }
-        });
-    });
+        })
 
-    //console.log(menuCnt);
-    console.log(Object.keys(menuCnt).sort((a, b) => {
-        return menuCnt[b] - menuCnt[a];
-    }));
+        // console.log(menu);
+        const temp = Object.keys(menu).sort((a, b) => menu[b] - menu[a]);
+        // console.log(temp);
+
+        const maxMenu = menu[temp[0]];
+        // console.log(maxMenu);
+        // console.log(Object.keys(menu).filter(m => menu[m] >= 2 && menu[m] === maxMenu));
+        answer.push(...Object.keys(menu).filter(m => menu[m] >= 2 && menu[m] === maxMenu))
+    })
+
+    answer.sort();
 
     return answer;
 }
