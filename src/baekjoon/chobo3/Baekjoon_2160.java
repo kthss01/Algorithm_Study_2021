@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 public class Baekjoon_2160 {
     /*
-        그림 비교
+        그림 비교 -> 재채점 이후 틀렸었음 -> 수정
 
         N(2 <= N <= 50)개의 그림이 있는데
         각각의 그림은 5 x 7 크기
@@ -61,7 +61,7 @@ public class Baekjoon_2160 {
                     }
                 }
 
-                if (temp < diff) {
+                if (temp <= diff) {
                     diff = temp;
                     imgA = i + 1;
                     imgB = j + 1;
