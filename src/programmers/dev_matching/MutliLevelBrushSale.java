@@ -1,5 +1,10 @@
 package programmers.dev_matching;
 
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.function.BiConsumer;
+
 public class MutliLevelBrushSale {
     /*
         다단계 칫솔 판매
@@ -57,9 +62,51 @@ public class MutliLevelBrushSale {
         System.out.println();
     }
 
+    static class Member {
+        private Member parent = null;
+        private int money = 0;
+
+        public void setParent(Member parent) {
+            this.parent = parent;
+        }
+
+        public void addMoney(int money) {
+            int cost = Math.floorDiv(money, 10);
+            this.money += money - cost;
+            if (parent != null) {
+                parent.addMoney(cost);
+            }
+        }
+
+        public int getMoney() {
+            return money;
+        }
+    }
+
     static class Solution {
         public int[] solution(String[] enroll, String[] referral, String[] seller, int[] amount) {
-            int[] answer = {};
+            int[] answer = new int[enroll.length];
+
+            Map<String, Member> map = new HashMap<>();
+            int price = 100;
+
+            for (int i = 0; i < enroll.length; i++) {
+                Member m = new Member();
+                if (!referral[i].equals("-")) {
+                    m.setParent(map.get(referral[i]));
+                }
+                map.put(enroll[i], m);
+            }
+
+            for (int i = 0; i < seller.length; i++) {
+                Member m = map.get(seller[i]);
+                m.addMoney(amount[i] * price);
+            }
+
+            for (int i = 0; i < enroll.length; i++) {
+                answer[i] = map.get(enroll[i]).getMoney();
+            }
+
             return answer;
         }
     }
