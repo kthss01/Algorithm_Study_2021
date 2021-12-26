@@ -5,6 +5,27 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "type": "java",
+            "name": "Launch Baekjoon_6810",
+            "request": "launch",
+            "mainClass": "baekjoon.kingchobo.Baekjoon_6810",
+            "projectName": "Algorithm_Study_2021"
+        },
+        {
+            "type": "java",
+            "name": "Launch Baekjoon_5522",
+            "request": "launch",
+            "mainClass": "baekjoon.kingchobo.Baekjoon_5522",
+            "projectName": "Algorithm_Study_2021"
+        },
+        {
+            "type": "java",
+            "name": "Launch Test",
+            "request": "launch",
+            "mainClass": "Test",
+            "projectName": "Algorithm_Study_2021"
+        },
+        {
             "name": "Python: Current File",
             "type": "python",
             "request": "launch",

@@ -1,6 +1,6 @@
 package baekjoon.chobo2;
 
-import javafx.util.Pair;
+// import javafx.util.Pair;
 
 import java.io.BufferedReader;
 import java.io.IOException;
