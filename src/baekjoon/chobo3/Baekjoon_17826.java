@@ -3,6 +3,7 @@ package baekjoon.chobo3;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.StringTokenizer;
 
@@ -34,6 +35,32 @@ public class Baekjoon_17826 {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer token = new StringTokenizer(br.readLine());
 
-        Map<String, Integer> scores = new HashMap<>();
+        String score = br.readLine();
+
+        int rank = 1;
+        while (token.hasMoreTokens()) {
+            if (score.equals(token.nextToken())) {
+                break;
+            }
+            rank++;
+        }
+        
+        String ans = "";
+        if (rank <= 5) {
+            ans = "A+";
+        } else if (rank <= 15) {
+            ans = "A0";
+        } else if (rank <= 30) {
+            ans = "B+";
+        } else if (rank <= 35) {
+            ans = "B0";
+        } else if (rank <= 45) {
+            ans = "C+";
+        } else if (rank <= 48) {
+            ans = "C0";
+        } else {
+            ans = "F";
+        }
+        System.out.println(ans);
     }
 }
