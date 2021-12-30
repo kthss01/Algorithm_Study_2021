@@ -35,10 +35,17 @@ public class Baekjoon_17838 {
 
             boolean isLike = true;
 
-            if (command.length() != 7) {
-                isLike = false;
-            } else {
-                
+            isLike &= command.length() == 7;
+            
+            if (isLike) {
+                char a = command.charAt(0);
+                char b = command.charAt(2);
+                isLike &= a != b;
+                isLike &= a == command.charAt(1) 
+                    && a == command.charAt(4);
+                isLike &= b == command.charAt(3) 
+                    && b == command.charAt(5) 
+                    && b == command.charAt(6);
             }
 
             if (isLike) {
